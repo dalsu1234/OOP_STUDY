@@ -78,4 +78,5 @@ nacho.age = 3;
 nacho.color = 1;
 	<< 접근 제한자가 Private이라 클래스 내부에서만 접근이 가능
 
+
 */
