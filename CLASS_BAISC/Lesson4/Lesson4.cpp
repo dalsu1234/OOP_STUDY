@@ -365,23 +365,3 @@ int main()
 
 
 */
-
-class Quest
-{
-private:
-	int mID;
-	int mExp;
-public:
-	Quest(int id, int exp) : mID{ id }, mExp{ exp }{};
-	
-	void Print()
-	{
-		std::cout << "mID : " mID << ". Exp : " << mExp << std::endl;
-	}
-};
-
-int main()
-{
-	Quest q1(1,100);
-	q1.Print();
-}
