@@ -1,39 +1,43 @@
 #include "LinkedList.h"
-#include <iostream>
 
-
-int LinkedList::GetCount(LinkedList& list)
+LinkedList::LinkedList(int n)
 {
-	return list.mCnt;
+	mLink = nullptr;
+	mData = n;
+	mCount = 0;
 }
 
-void LinkedList::GetLink(LinkedList& origin, LinkedList& node, int data)
+void LinkedList::SetLink(LinkedList& top, LinkedList& node)
 {
-	node.mData = data;
-	if (&origin != nullptr)
+	if (top.mLink == nullptr)
 	{
-		node.mLink = &origin;
-		node.mCnt = origin.mCnt + 1;
+		top.mLink = &node;
 	}
 	else
 	{
-		node.mCnt = 1;
+		node.mLink = top.mLink;
+		top.mLink = &node;
 	}
-
+	top.mCount++;
 }
 
-int LinkedList::GetNum(LinkedList& instance)
+void LinkedList::NewLink(LinkedList& top)
 {
-	return instance.mData;
+	top.mLink = top.mLink->mLink;
 }
 
-LinkedList* LinkedList::LinkSwap(LinkedList& origin)
+void LinkedList::SwapLinkPoint(LinkedList& top, LinkedList& link)
 {
-	return origin.mLink;
+	link.mLink = &top;
 }
 
-bool LinkedList::CheckEmpty(LinkedList* instance)
+int LinkedList::GetData(LinkedList& top)
 {
-	return instance->mLink != nullptr;
+	return top.mLink->mData;
 }
 
+
+LinkedList* LinkedList::LinkPoint(LinkedList& link)
+{
+	return link.mLink;
+}

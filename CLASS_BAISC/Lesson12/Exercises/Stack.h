@@ -1,19 +1,20 @@
-#pragma once
 #include "LinkedList.h"
+#pragma once
+
 class Stack : public LinkedList
 {
-	LinkedList* mPin;
-
+	LinkedList* mTop;
 public:
-	Stack() :mPin{nullptr} {};
-	~Stack();
+	Stack() : mTop{ nullptr } {};
+	Stack(int n) : LinkedList(n), mTop{ nullptr } {};
 
-	
-	void Push(int n);
-	void Pop();
-	void PrintInfo();
+	~Stack()
+	{
+		delete this;
+	}
+	void AddNode(int num);
+	void RemoveNode();
+	void Info();
 	void Print();
-
-
 };
 

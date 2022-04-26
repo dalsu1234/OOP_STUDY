@@ -1,68 +1,55 @@
-#include <iostream>
 #include "Stack.h"
+#include <iostream>
 
-
-void Stack::Push(int n)
+void Stack::AddNode(int num)
 {
-	LinkedList* p = new Stack;
-	
-	GetLink(*this->mPin,*p,n);
-	this->mPin = p;
+	LinkedList* newNode = new Stack(num);
+
+	this->SetLink(*this, *newNode);
+	this->mTop = newNode;
 }
 
-void Stack::Pop()
+void Stack::RemoveNode()
 {
-	if (mPin == nullptr)
+	if (mLink == nullptr)
 	{
 		return;
 	}
-
-
-	if (CheckEmpty(mPin))
-	{
-		mPin = LinkSwap(*mPin);
-	}
-	else
-	{
-		if (mPin != nullptr)
-		{
-			mPin = nullptr;
-		}
-	}
+	mTop = LinkPoint(*mLink);
+	mLink = mTop;
+	mCount--;
 }
 
-
-void Stack::PrintInfo()
+void Stack::Info()
 {
 	int n{};
 	bool isExit = true;
 	while (isExit)
 	{
-		std::cout << "--------------" << std::endl;
-		std::cout << "[1] Push " << std::endl;
-		std::cout << "[2] Pop " << std::endl;
-		std::cout << "[3] Exit " << std::endl;
-		std::cout << "--------------" << std::endl;
+		std::cout << "[1] Input Stack " << std::endl;
+		std::cout << "[2] Remove Stack " << std::endl;
+		std::cout << "[3] EXIT " << std::endl;
 		std::cin >> n;
 		switch (n)
 		{
 		case 1:
 		{
-			int num;
-			std::cout << "InPut Number" << std::endl;
-			std::cout << "--------------" << std::endl;
-			std::cin >> num;
-
-			Push(num);
+			int data{};
+			std::cout << "Input Number" << std::endl;
+			std::cout << "  >> ";
+			std::cin >> data;
+			std::cout << "-------------" << std::endl;
+			AddNode(data);
 			Print();
 			break;
 		}
 		case 2:
-			Pop();
+			RemoveNode();
 			Print();
 			break;
 		case 3:
 			isExit = false;
+			std::cout << "종료합니다." << std::endl;
 			break;
 		default:
 			break;
@@ -76,30 +63,20 @@ void Stack::PrintInfo()
 
 void Stack::Print()
 {
-	std::cout << "--------------" << std::endl;
-	if (mPin == nullptr)
+	std::cout << "----Stack----" << std::endl;
+	if (mLink == nullptr)
 	{
-		std::cout << "empty" << std::endl;
-		std::cout << "--------------" << std::endl;
+		std::cout << "EMPTY" << std::endl;
+		std::cout << "-------------" << std::endl;
 		return;
 	}
-
-	int n{};
-	n = GetCount(*this->mPin);
-
-	LinkedList* p{};
-	p = mPin;
-	
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < mCount; i++)
 	{
-		std::cout << GetNum(*p) << std::endl;
-		if (CheckEmpty(p))
-		{
-			p = LinkSwap(*p);
-		}
+
+		std::cout << GetData(*this) << std::endl;
+		NewLink(*this);
 	}
+	std::cout << "-------------" << std::endl;
+	SwapLinkPoint(*mTop, *this);
 
-	std::cout << "--------------" << std::endl;
-	
 }
-

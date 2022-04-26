@@ -1,16 +1,15 @@
 #include <iostream>
 #include "Stack.h"
-#include "Queue.h"
 
 int main()
 {
-	LinkedList* a = new Stack;
-	a->PrintInfo();
-	
-	delete a;
+	LinkedList* p = new Stack;
+
+	p->Info();
+
+
+	delete p;
 }
-
-
 
 /*
 

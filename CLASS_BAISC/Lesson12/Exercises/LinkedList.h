@@ -1,34 +1,32 @@
 #pragma once
-#include <iostream>
 class LinkedList
 {
+
+
 protected:
-	
-	int mCnt;
-	int mData;
 	LinkedList* mLink;
+	int mData;
+	int mCount;
 
 public:
 
-	LinkedList() : mCnt{ 0 }, mData{0}, mLink{ nullptr }{};
-	
-	//virtual ~LinkedList();// ¿¡·¯
+	LinkedList() : mLink{ nullptr }, mData{}, mCount{}{};
+	LinkedList(int n);
+	virtual ~LinkedList()
+	{
+		delete this;
+	}
+	void SetLink(LinkedList& top, LinkedList& node);
+	void NewLink(LinkedList& top);
 
-	int GetCount(LinkedList& list);
-	
-	void GetLink(LinkedList& origin, LinkedList& node, int data);
-	int GetNum(LinkedList& instance);
-	LinkedList* LinkSwap(LinkedList& origin);
-	bool CheckEmpty(LinkedList* instance);
+	void SwapLinkPoint(LinkedList& top, LinkedList& link);
+	int GetData(LinkedList& top);
 
-	virtual void Push(int n) = 0;
-	virtual void Pop() = 0;
-	virtual void PrintInfo() = 0;
+	LinkedList* LinkPoint(LinkedList& link);
+
+	virtual void AddNode(int num) = 0;
+	virtual void RemoveNode() = 0;
+	virtual void Info() = 0;
 	virtual void Print() = 0;
-
-	
-
-
-	
 };
 
