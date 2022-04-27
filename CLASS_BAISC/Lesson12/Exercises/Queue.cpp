@@ -1,6 +1,10 @@
 #include <iostream>
 #include "Queue.h"
 
+Queue::~Queue()
+{
+}
+
 void Queue::AddNode(int num)
 {
 	LinkedList* newNode = new Queue(num);
@@ -9,16 +13,14 @@ void Queue::AddNode(int num)
 	{
 		mCount = 0;
 		mHead = newNode;
-		mTail = newNode;
-		SetLink(*mHead, *newNode);
-		GetCount(*this);
 	}
 	else
 	{
 		SetLink(*mTail, *newNode);
-		mTail = newNode;
-		GetCount(*this);
 	}
+	
+	mTail = newNode;
+	GetCount(*this);
 }
 
 void Queue::RemoveNode()
@@ -29,10 +31,9 @@ void Queue::RemoveNode()
 		
 		return;
 	}
-	mLink = LinkPoint(*mHead);
 
-	mHead = LinkPoint(*this);
-
+	mHead = LinkPoint(*mHead);// 이게 문제임
+	
 	mCount--;
 }
 

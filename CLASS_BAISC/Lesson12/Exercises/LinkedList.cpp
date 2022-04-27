@@ -47,3 +47,8 @@ LinkedList* LinkedList::LinkPoint(LinkedList& link)
 {
 	return link.mLink;
 }
+
+LinkedList::~LinkedList()
+{
+
+}

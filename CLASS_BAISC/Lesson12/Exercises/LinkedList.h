@@ -12,10 +12,7 @@ public:
 
 	LinkedList() : mLink{ nullptr }, mData{}, mCount{}{};
 	LinkedList(int n);
-	virtual ~LinkedList()
-	{
-		delete this;
-	}
+	virtual ~LinkedList();
 	void SetLink(LinkedList& top, LinkedList& node);
 	void NewLink(LinkedList& top);
 

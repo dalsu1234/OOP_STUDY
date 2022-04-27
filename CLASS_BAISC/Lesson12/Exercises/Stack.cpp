@@ -1,5 +1,10 @@
 #include "Stack.h"
+#include "Stack.h"
 #include <iostream>
+
+Stack::~Stack()
+{
+}
 
 void Stack::AddNode(int num)
 {

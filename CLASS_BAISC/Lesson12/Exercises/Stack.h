@@ -8,10 +8,7 @@ public:
 	Stack() : mTop{ nullptr } {};
 	Stack(int n) : LinkedList(n), mTop{ nullptr } {};
 
-	~Stack()
-	{
-		delete this;
-	}
+	~Stack();
 	void AddNode(int num);
 	void RemoveNode();
 	void Info();

@@ -4,12 +4,14 @@
 
 int main()
 {
-	/*LinkedList* stack = new Stack;
+	LinkedList* stack = new Stack;
 
-	stack->Info();*/
+	stack->Info();
+
+
 	LinkedList* queue = new Queue;
 	queue->Info();
 
 	delete queue;
-	//delete stack;
+	delete stack;
 }

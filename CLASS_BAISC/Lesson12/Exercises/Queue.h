@@ -7,10 +7,7 @@ class Queue : public LinkedList
 public:
 	Queue() : mHead{ nullptr }, mTail{ nullptr } {};
 	Queue(int n) : LinkedList(n), mHead{ nullptr }, mTail{nullptr}{};
-	~Queue()
-	{
-		delete this;
-	}
+	~Queue();
 	void AddNode(int num);
 	void RemoveNode();
 	void Info();
