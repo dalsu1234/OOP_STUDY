@@ -21,7 +21,8 @@ public:
 
 	void SwapLinkPoint(LinkedList& top, LinkedList& link);
 	int GetData(LinkedList& top);
-
+	void GetCount(LinkedList& top);
+	
 	LinkedList* LinkPoint(LinkedList& link);
 
 	virtual void AddNode(int num) = 0;

@@ -18,11 +18,12 @@ void LinkedList::SetLink(LinkedList& top, LinkedList& node)
 		node.mLink = top.mLink;
 		top.mLink = &node;
 	}
-	top.mCount++;
 }
+
 
 void LinkedList::NewLink(LinkedList& top)
 {
+
 	top.mLink = top.mLink->mLink;
 }
 
@@ -33,7 +34,12 @@ void LinkedList::SwapLinkPoint(LinkedList& top, LinkedList& link)
 
 int LinkedList::GetData(LinkedList& top)
 {
-	return top.mLink->mData;
+	return top.mData;
+}
+
+void LinkedList::GetCount(LinkedList& top)
+{
+	top.mCount++;
 }
 
 

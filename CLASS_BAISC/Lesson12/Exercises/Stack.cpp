@@ -7,6 +7,7 @@ void Stack::AddNode(int num)
 
 	this->SetLink(*this, *newNode);
 	this->mTop = newNode;
+	GetCount(*this);
 }
 
 void Stack::RemoveNode()
@@ -18,6 +19,7 @@ void Stack::RemoveNode()
 	mTop = LinkPoint(*mLink);
 	mLink = mTop;
 	mCount--;
+
 }
 
 void Stack::Info()
@@ -73,7 +75,7 @@ void Stack::Print()
 	for (int i = 0; i < mCount; i++)
 	{
 
-		std::cout << GetData(*this) << std::endl;
+		std::cout << GetData(*mLink) << std::endl;
 		NewLink(*this);
 	}
 	std::cout << "-------------" << std::endl;
