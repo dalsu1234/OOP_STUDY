@@ -7,39 +7,39 @@ LinkedList::LinkedList(int n)
 	mCount = 0;
 }
 
-void LinkedList::SetLink(LinkedList& top, LinkedList& node)
+void LinkedList::SetLink(LinkedList& base, LinkedList& node)
 {
-	if (top.mLink == nullptr)
+	if (base.mLink == nullptr)
 	{
-		top.mLink = &node;
+		base.mLink = &node;
 	}
 	else
 	{
-		node.mLink = top.mLink;
-		top.mLink = &node;
+		node.mLink = base.mLink;
+		base.mLink = &node;
 	}
 }
 
 
-void LinkedList::NewLink(LinkedList& top)
+void LinkedList::NewLink(LinkedList& base)
 {
 
-	top.mLink = top.mLink->mLink;
+	base.mLink = base.mLink->mLink;
 }
 
-void LinkedList::SwapLinkPoint(LinkedList& top, LinkedList& link)
+void LinkedList::SwapLinkPoint(LinkedList& base, LinkedList& link)
 {
-	link.mLink = &top;
+	link.mLink = &base;
 }
 
-int LinkedList::GetData(LinkedList& top)
+int LinkedList::GetData(LinkedList& base)
 {
-	return top.mData;
+	return base.mData;
 }
 
-void LinkedList::GetCount(LinkedList& top)
+void LinkedList::GetCount(LinkedList& base)
 {
-	top.mCount++;
+	base.mCount++;
 }
 
 

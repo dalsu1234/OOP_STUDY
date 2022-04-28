@@ -13,12 +13,12 @@ public:
 	LinkedList() : mLink{ nullptr }, mData{}, mCount{}{};
 	LinkedList(int n);
 	virtual ~LinkedList();
-	void SetLink(LinkedList& top, LinkedList& node);
-	void NewLink(LinkedList& top);
+	void SetLink(LinkedList& base, LinkedList& node);
+	void NewLink(LinkedList& base);
 
-	void SwapLinkPoint(LinkedList& top, LinkedList& link);
-	int GetData(LinkedList& top);
-	void GetCount(LinkedList& top);
+	void SwapLinkPoint(LinkedList& base, LinkedList& link);
+	int GetData(LinkedList& base);
+	void GetCount(LinkedList& base);
 	
 	LinkedList* LinkPoint(LinkedList& link);
 
